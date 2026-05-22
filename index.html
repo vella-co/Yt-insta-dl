@@ -1,43 +1,11 @@
-Tumhare diye hue code me main bugs ye the:
-
-buyNow() duplicate product add kar raha tha
-
-Back button history proper nahi chal rahi thi
-
-Search aur cart state mix ho raha tha
-
-Product click pe kabhi blank page aa sakta tha
-
-Mobile responsive smooth nahi tha
-
-Buttons ke andar nested click issue tha
-
-Footer/social links placement unstable tha
-
-Product image ratio break ho raha tha
-
-Sticky search overlap ho raha tha
-
-Cart total kabhi update nahi hota properly
-
-Popup/history logic heavy tha
-
-
-Isliye website unstable lag rahi thi.
-
-Ab ye wala clean stable structure use karo.
-Ye properly open hoga GitHub Pages par bhi.
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TubeX Tools</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>VELLA CO.</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -49,284 +17,229 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-background:#f4f4f4;
+background:#f3f5f9;
 color:#111;
 overflow-x:hidden;
 }
 
-img{
-width:100%;
-display:block;
-}
+/* HEADER */
 
 header{
-position:sticky;
-top:0;
+width:100%;
+height:70px;
 background:#fff;
-padding:15px;
 display:flex;
 justify-content:space-between;
 align-items:center;
+padding:0 18px;
+position:sticky;
+top:0;
 z-index:1000;
-border-bottom:1px solid #eee;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
 }
 
 .logo{
-font-size:24px;
-font-weight:800;
-}
-
-.cart-btn{
-background:#111;
-color:#fff;
-border:none;
-padding:10px 15px;
-border-radius:12px;
-cursor:pointer;
+font-size:28px;
 font-weight:700;
 }
 
-.banner{
-margin:15px;
-height:180px;
-border-radius:25px;
-background:linear-gradient(135deg,#111,#444);
+.logo span{
+color:#3b82f6;
+}
+
+.header-icons{
 display:flex;
-flex-direction:column;
-justify-content:center;
-padding:25px;
-color:#fff;
+align-items:center;
+gap:15px;
 }
 
-.banner h1{
-font-size:34px;
-line-height:1;
-margin-bottom:10px;
-}
-
-.banner p{
-font-size:13px;
-opacity:.9;
-}
-
-.search{
-padding:0 15px 15px;
-}
-
-.search input{
-width:100%;
-padding:14px;
-border:none;
-outline:none;
-border-radius:14px;
-background:#fff;
-font-size:14px;
-}
-
-.section-title{
-padding:0 15px 15px;
-font-size:18px;
-font-weight:700;
-}
-
-.products{
-padding:0 15px 90px;
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:14px;
-}
-
-.card{
-background:#fff;
-border-radius:22px;
-overflow:hidden;
-cursor:pointer;
-box-shadow:0 5px 14px rgba(0,0,0,.05);
-transition:.2s;
-}
-
-.card:hover{
-transform:translateY(-3px);
-}
-
-.card img{
-height:220px;
-object-fit:cover;
-}
-
-.info{
-padding:12px;
-}
-
-.name{
-font-size:13px;
-font-weight:600;
-margin-bottom:8px;
-height:36px;
-overflow:hidden;
-}
-
-.price{
-font-size:18px;
-font-weight:800;
-margin-bottom:10px;
-}
-
-.shop{
-width:100%;
-padding:11px;
-border:none;
-background:#111;
-color:#fff;
-border-radius:12px;
-font-weight:700;
-cursor:pointer;
-}
-
-#productPage{
-display:none;
-padding-bottom:100px;
-}
-
-.back{
-padding:15px;
-font-weight:700;
-cursor:pointer;
-}
-
-#productImage{
-height:420px;
-object-fit:cover;
-background:#fff;
-}
-
-.product-details{
-background:#fff;
-margin-top:-20px;
-border-radius:25px 25px 0 0;
-padding:20px;
-position:relative;
-}
-
-#productTitle{
-font-size:24px;
-margin-bottom:10px;
-}
-
-#productPrice{
+.menu-btn{
 font-size:30px;
-font-weight:800;
+cursor:pointer;
+}
+
+.icon-btn{
+width:42px;
+height:42px;
+border-radius:50%;
+background:#3b82f6;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#fff;
+font-size:20px;
+cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+padding:40px 20px;
+text-align:center;
+}
+
+.hero h1{
+font-size:46px;
+line-height:1.1;
+font-weight:700;
 margin-bottom:20px;
 }
 
-.size-title{
-font-size:13px;
-font-weight:700;
-margin-bottom:10px;
-text-transform:uppercase;
+.hero p{
+font-size:18px;
+color:#555;
+line-height:1.6;
 }
 
-.sizes{
-display:flex;
-gap:10px;
-margin-bottom:25px;
-}
-
-.size{
-padding:10px 18px;
-background:#f3f3f3;
-border-radius:12px;
-cursor:pointer;
-font-weight:600;
-}
-
-.size.active{
-background:#111;
+.free-tag{
+display:inline-block;
+background:#3b82f6;
 color:#fff;
-}
-
-.actions{
-display:flex;
-gap:12px;
-}
-
-.actions button{
-flex:1;
-padding:15px;
-border:none;
-border-radius:14px;
+padding:10px 20px;
+border-radius:10px;
 font-weight:700;
-cursor:pointer;
+margin:15px 0 25px;
 }
 
-.add{
-background:#eee;
-}
+/* MAIN BOX */
 
-.buy{
-background:#111;
-color:#fff;
-}
-
-#cartPage{
-display:none;
-padding:15px 15px 100px;
-}
-
-.cart-item{
+.tool-box{
+width:92%;
+max-width:700px;
+margin:auto;
 background:#fff;
-padding:12px;
-border-radius:18px;
-display:flex;
-gap:12px;
-margin-bottom:14px;
-align-items:center;
+border-radius:20px;
+padding:25px;
+box-shadow:0 8px 30px rgba(0,0,0,0.08);
 }
 
-.cart-item img{
-width:70px;
-height:70px;
+.label{
+font-size:22px;
+font-weight:600;
+margin-bottom:15px;
+}
+
+.input-box{
+width:100%;
+height:60px;
+border:2px solid #e2e8f0;
 border-radius:12px;
-object-fit:cover;
+padding:0 18px;
+font-size:16px;
+outline:none;
+margin-bottom:20px;
 }
 
-.cart-item h3{
-font-size:14px;
-margin-bottom:5px;
+.input-box:focus{
+border-color:#3b82f6;
 }
 
-.remove{
-background:red;
-color:#fff;
+.action-btn{
+width:100%;
+height:58px;
 border:none;
-width:35px;
-height:35px;
-border-radius:50%;
-cursor:pointer;
-}
-
-.total{
-background:#111;
+border-radius:12px;
+background:#3b82f6;
 color:#fff;
-padding:18px;
-border-radius:18px;
 font-size:20px;
 font-weight:700;
+cursor:pointer;
+margin-bottom:15px;
+transition:0.3s;
+}
+
+.action-btn:hover{
+transform:scale(0.98);
+}
+
+/* RESULT */
+
+#resultArea{
+display:none;
+margin-top:25px;
+}
+
+.thumb-preview{
+width:100%;
+border-radius:16px;
+margin-bottom:15px;
+}
+
+.download-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
 margin-top:20px;
 }
 
-.checkout{
-width:100%;
-padding:15px;
-margin-top:15px;
-border:none;
-background:#25D366;
-color:#fff;
-font-size:15px;
-font-weight:700;
-border-radius:16px;
-cursor:pointer;
+.download-card{
+background:#f8fafc;
+padding:18px;
+border-radius:15px;
+text-align:center;
 }
+
+.download-card h3{
+font-size:18px;
+margin-bottom:10px;
+}
+
+.download-link{
+display:inline-block;
+padding:10px 20px;
+background:#111;
+color:#fff;
+text-decoration:none;
+border-radius:10px;
+font-size:14px;
+font-weight:600;
+}
+
+/* TOOLS */
+
+.section-title{
+font-size:35px;
+font-weight:700;
+text-align:center;
+margin:60px 0 30px;
+}
+
+.tools-grid{
+display:grid;
+grid-template-columns:1fr;
+gap:20px;
+padding:0 20px 80px;
+max-width:800px;
+margin:auto;
+}
+
+.tool-card{
+background:#fff;
+border-radius:18px;
+padding:25px;
+display:flex;
+align-items:center;
+gap:20px;
+box-shadow:0 5px 20px rgba(0,0,0,0.06);
+}
+
+.tool-icon{
+width:70px;
+height:70px;
+border-radius:15px;
+background:#3b82f6;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:32px;
+color:#fff;
+}
+
+.tool-card h2{
+font-size:24px;
+}
+
+/* FOOTER */
 
 footer{
 background:#fff;
@@ -335,43 +248,50 @@ text-align:center;
 border-top:1px solid #eee;
 }
 
+footer p{
+font-size:16px;
+line-height:1.8;
+color:#555;
+}
+
 .socials{
 display:flex;
 justify-content:center;
 gap:15px;
-margin-bottom:15px;
+margin-top:20px;
 }
 
 .socials a{
-width:45px;
-height:45px;
-background:#111;
+width:50px;
+height:50px;
+background:#3b82f6;
 border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
-color:#fff;
-font-size:18px;
 text-decoration:none;
+color:#fff;
+font-size:22px;
 }
 
-footer p{
-font-size:12px;
-color:#666;
+/* MOBILE */
+
+@media(max-width:700px){
+
+.hero h1{
+font-size:32px;
 }
 
-@media(min-width:768px){
-
-.products{
-grid-template-columns:repeat(4,1fr);
+.hero p{
+font-size:15px;
 }
 
-.banner{
-height:260px;
+.tool-card h2{
+font-size:19px;
 }
 
-.banner h1{
-font-size:50px;
+.download-grid{
+grid-template-columns:1fr;
 }
 
 }
@@ -384,389 +304,193 @@ font-size:50px;
 <header>
 
 <div class="logo">
-VELLA
+Tube<span>X</span>
 </div>
 
-<button class="cart-btn" onclick="openCart()">
-Cart (<span id="cartCount">0</span>)
-</button>
+<div class="header-icons">
+<div class="menu-btn">☰</div>
+<div class="icon-btn">⬇</div>
+</div>
 
 </header>
 
-<div id="homePage">
+<section class="hero">
 
-<div class="banner">
+<h1>YouTube Video & Thumbnail Downloader</h1>
 
-<h1>NEW<br>DROP</h1>
+<div class="free-tag">
+100% FREE
+</div>
 
 <p>
-Premium streetwear collection
+Download YouTube video thumbnails instantly and watch videos easily using premium fast tools.
 </p>
 
+</section>
+
+<div class="tool-box">
+
+<div class="label">
+Enter YouTube Video URL
 </div>
 
-<div class="search">
+<input
+type="text"
+id="videoUrl"
+class="input-box"
+placeholder="https://youtube.com/watch?v=xxxxxx"
+/>
 
-<input type="text" placeholder="Search products..." id="searchInput" onkeyup="searchProducts()">
-
-</div>
-
-<div class="section-title">
-Trending Products
-</div>
-
-<div class="products" id="products"></div>
-
-</div>
-
-<div id="productPage">
-
-<div class="back" onclick="goHome()">
-⬅ Back
-</div>
-
-<img id="productImage">
-
-<div class="product-details">
-
-<h1 id="productTitle"></h1>
-
-<div id="productPrice"></div>
-
-<div class="size-title">
-Select Size
-</div>
-
-<div class="sizes">
-
-<div class="size" onclick="selectSize(this)">S</div>
-<div class="size" onclick="selectSize(this)">M</div>
-<div class="size" onclick="selectSize(this)">L</div>
-<div class="size" onclick="selectSize(this)">XL</div>
-
-</div>
-
-<div class="actions">
-
-<button class="add" onclick="addToCart()">
-Add To Cart
+<button class="action-btn" onclick="getThumbnail()">
+Download Thumbnail
 </button>
 
-<button class="buy" onclick="buyNow()">
-Buy Now
+<button class="action-btn" onclick="watchVideo()">
+Watch Video
 </button>
 
+<div id="resultArea">
+
+<img id="thumbnailImage" class="thumb-preview" src="">
+
+<div class="download-grid">
+
+<div class="download-card">
+<h3>HD Thumbnail</h3>
+<a id="hdDownload" class="download-link" download>
+Download HD
+</a>
+</div>
+
+<div class="download-card">
+<h3>Medium Thumbnail</h3>
+<a id="mqDownload" class="download-link" download>
+Download MQ
+</a>
 </div>
 
 </div>
 
 </div>
 
-<div id="cartPage">
-
-<div class="back" onclick="goHome()">
-⬅ Back
 </div>
 
-<h2 style="margin-bottom:15px;">
-Your Cart
-</h2>
+<h1 class="section-title">
+Popular Tools
+</h1>
 
-<div id="cartItems"></div>
+<div class="tools-grid">
 
-<div class="total">
-Total ₹<span id="totalPrice">0</span>
+<div class="tool-card">
+<div class="tool-icon">🖼</div>
+<h2>YouTube Thumbnail Downloader</h2>
 </div>
 
-<button class="checkout" onclick="checkout()">
-Order On WhatsApp
-</button>
+<div class="tool-card">
+<div class="tool-icon">🎬</div>
+<h2>YouTube Video Saver</h2>
+</div>
+
+<div class="tool-card">
+<div class="tool-icon">📸</div>
+<h2>YouTube Screenshot Generator</h2>
+</div>
+
+<div class="tool-card">
+<div class="tool-icon">📝</div>
+<h2>YouTube Description Generator</h2>
+</div>
+
+<div class="tool-card">
+<div class="tool-icon">🏷</div>
+<h2>YouTube Tag Extractor</h2>
+</div>
 
 </div>
 
 <footer>
 
+<p>
+© 2026 TubeX Tools ❤️ Made For YouTubers
+</p>
+
 <div class="socials">
 
 <a href="https://instagram.com" target="_blank">📷</a>
 
-<a href="https://t.me" target="_blank">✈️</a>
+<a href="https://t.me" target="_blank">✈</a>
 
 <a href="https://wa.me/918929094129" target="_blank">💬</a>
 
 </div>
 
-<p>
-© 2026 Vella Co.
-</p>
-
 </footer>
 
 <script>
 
-const products = [
+function extractVideoID(url){
 
-{
-id:1,
-name:"Premium White Hoodie",
-price:1499,
-image:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800"
-},
+let regExp =
+/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/;
 
-{
-id:2,
-name:"Luxury Black T-Shirt",
-price:999,
-image:"https://images.unsplash.com/photo-1503341455253-b2bc71f093b1?w=800"
-},
+let match = url.match(regExp);
 
-{
-id:3,
-name:"Streetwear Oversized Tee",
-price:1299,
-image:"https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=800"
-},
-
-{
-id:4,
-name:"Modern Grey Hoodie",
-price:1799,
-image:"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800"
-}
-
-];
-
-let cart = [];
-let currentProduct = null;
-let selectedSize = "";
-
-function renderProducts(list = products){
-
-const container = document.getElementById("products");
-
-container.innerHTML = "";
-
-list.forEach(product=>{
-
-container.innerHTML += `
-
-<div class="card" onclick="openProduct(${product.id})">
-
-<img src="${product.image}">
-
-<div class="info">
-
-<div class="name">
-${product.name}
-</div>
-
-<div class="price">
-₹${product.price}
-</div>
-
-<button class="shop">
-Shop Now
-</button>
-
-</div>
-
-</div>
-
-`;
-
-});
+return match ? match[1] : null;
 
 }
 
-renderProducts();
+function getThumbnail(){
 
-function openProduct(id){
+let url = document.getElementById("videoUrl").value;
 
-currentProduct = products.find(p=>p.id===id);
+let videoId = extractVideoID(url);
 
-document.getElementById("homePage").style.display = "none";
-document.getElementById("cartPage").style.display = "none";
-document.getElementById("productPage").style.display = "block";
+if(!videoId){
 
-document.getElementById("productImage").src = currentProduct.image;
-document.getElementById("productTitle").innerText = currentProduct.name;
-document.getElementById("productPrice").innerText = "₹" + currentProduct.price;
-
-window.scrollTo(0,0);
-
-}
-
-function goHome(){
-
-document.getElementById("productPage").style.display = "none";
-document.getElementById("cartPage").style.display = "none";
-document.getElementById("homePage").style.display = "block";
-
-}
-
-function selectSize(el){
-
-document.querySelectorAll(".size").forEach(size=>{
-size.classList.remove("active");
-});
-
-el.classList.add("active");
-
-selectedSize = el.innerText;
-
-}
-
-function addToCart(){
-
-if(selectedSize===""){
-
-alert("Select size");
+alert("Please enter valid YouTube URL");
 
 return;
 
 }
 
-cart.push({
-...currentProduct,
-size:selectedSize
-});
+let hd =
+"https://img.youtube.com/vi/" +
+videoId +
+"/maxresdefault.jpg";
 
-updateCart();
+let mq =
+"https://img.youtube.com/vi/" +
+videoId +
+"/mqdefault.jpg";
 
-alert("Added To Cart");
+document.getElementById("thumbnailImage").src = hd;
 
-}
+document.getElementById("hdDownload").href = hd;
 
-function buyNow(){
+document.getElementById("mqDownload").href = mq;
 
-addToCart();
-
-openCart();
-
-}
-
-function updateCart(){
-
-document.getElementById("cartCount").innerText = cart.length;
+document.getElementById("resultArea").style.display = "block";
 
 }
 
-function openCart(){
+function watchVideo(){
 
-document.getElementById("homePage").style.display = "none";
-document.getElementById("productPage").style.display = "none";
-document.getElementById("cartPage").style.display = "block";
+let url = document.getElementById("videoUrl").value;
 
-renderCart();
+let videoId = extractVideoID(url);
 
-}
+if(!videoId){
 
-function renderCart(){
-
-const cartItems = document.getElementById("cartItems");
-
-cartItems.innerHTML = "";
-
-let total = 0;
-
-if(cart.length===0){
-
-cartItems.innerHTML = `
-<p style="color:#666;">
-Cart Empty
-</p>
-`;
-
-document.getElementById("totalPrice").innerText = "0";
+alert("Please enter valid YouTube URL");
 
 return;
 
 }
-
-cart.forEach((item,index)=>{
-
-total += item.price;
-
-cartItems.innerHTML += `
-
-<div class="cart-item">
-
-<img src="${item.image}">
-
-<div style="flex:1;">
-
-<h3>${item.name}</h3>
-
-<p>
-Size: ${item.size}
-</p>
-
-<p style="margin-top:5px;font-weight:700;">
-₹${item.price}
-</p>
-
-</div>
-
-<button class="remove" onclick="removeItem(${index})">
-×
-</button>
-
-</div>
-
-`;
-
-});
-
-document.getElementById("totalPrice").innerText = total;
-
-}
-
-function removeItem(index){
-
-cart.splice(index,1);
-
-updateCart();
-
-renderCart();
-
-}
-
-function checkout(){
-
-if(cart.length===0){
-
-alert("Cart Empty");
-
-return;
-
-}
-
-let message = "🛒 NEW ORDER %0A%0A";
-
-cart.forEach((item,index)=>{
-
-message += `${index+1}. ${item.name}%0A`;
-message += `Size: ${item.size}%0A`;
-message += `Price: ₹${item.price}%0A%0A`;
-
-});
 
 window.open(
-"https://wa.me/918929094129?text=" + message,
+"https://www.youtube.com/watch?v=" + videoId,
 "_blank"
 );
-
-}
-
-function searchProducts(){
-
-const value = document.getElementById("searchInput").value.toLowerCase();
-
-const filtered = products.filter(product=>
-product.name.toLowerCase().includes(value)
-);
-
-renderProducts(filtered);
 
 }
 
